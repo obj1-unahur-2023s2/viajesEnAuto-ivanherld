@@ -1,0 +1,40 @@
+import remiseras.*
+import clientas.*
+
+describe "Tests De Roxana"{
+	
+
+test "Roxana: a Ludmila 180 pesos " {
+
+	assert.equals(180, roxana.precioViaje(ludmila,10))
+
+}
+
+
+test "Roxana: Ana María 300" {
+
+	assert.equals(300, roxana.precioViaje(anaMaria,10))
+
+}
+
+test "Roxana: a Teresa 220" {
+
+	assert.equals(220, roxana.precioViaje(teresa,10))
+
+}
+
+}
+
+describe "Test de Lucia" {
+	test "No se puede reemplazar a si misma"{
+		assert.throwsExceptionWithMessage("No se puede reemplazar a si mismo",{lucia.remiseraQueReemplaza(lucia)})//bloque de codigo que produce el error
+	}
+	
+	test "Se puede reemplazar a roxana"{
+	assert.doesNotThrowException({lucia.remiseraQueReemplaza(roxana)})}
+	
+	test "Reemplazo de roxana"{
+		lucia.remiseraQueReemplaza(roxana)
+		assert.equals(180, lucia.precioViaje(ludmila,10))
+	}
+}
